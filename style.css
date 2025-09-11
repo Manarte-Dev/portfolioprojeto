@@ -23,36 +23,71 @@ body {
   background: #0f0f0f;
   padding: 20px 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* centraliza logo */
   align-items: center;
-  z-index: 10;
   border-bottom: 1px solid #222;
+  position: relative; /* necessário para o botão */
+  z-index: 1000;
 }
 
 .logo {
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 2rem; /* tamanho ajustado */
+  color: #fff;
+  text-align: center;
+  flex: 1; /* ocupa espaço central */
+}
+
+/* NAV DESKTOP */
+.nav {
+  display: flex;
+  gap: 20px;
 }
 
 .nav a {
   color: #ccc;
-  margin-left: 20px;
   text-decoration: none;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav a:hover {
   color: #00df9a;
+  text-decoration: underline;
 }
 
 /* BOTÃO MENU MOBILE */
 .menu-toggle {
   display: none; /* só aparece no mobile */
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+  color: #00df9a;
   background: none;
   border: none;
-  font-size: 1.5rem;
-  color: #fff;
   cursor: pointer;
+  z-index: 1001;
+}
+
+/* OVERLAY ESCURO */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* SEÇÕES */
@@ -181,127 +216,21 @@ body {
   }
 }
 
-
 /* RESPONSIVO - MOBILE */
 @media (max-width: 768px) {
   .grid-projetos {
     grid-template-columns: 1fr;
   }
 
-  /* Menu mobile */
-  .nav {
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    position: absolute;
-    top: 70px;
-    right: 40px;
-    background-color: #0f0f0f;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  }
-
-  .nav.show {
-    display: flex;
-  }
-
   .menu-toggle {
     display: block;
-    position: absolute;
-    right: 40px;
-    top: 25px;
   }
 
-  .header {
-    justify-content: center;
-  }
-}
-/* HEADER E NAV */
-.header {
-  position: sticky;
-  top: 0;
-  background: #0f0f0f;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-  border-bottom: 1px solid #222;
-}
-
-.logo {
-  font-weight: 800;
-  font-size: 1.2rem;
-  color: #fff;
-}
-
-/* BOTÃO MENU MOBILE */
-.menu-toggle {
-  display: none; /* só aparece no mobile */
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: #00df9a;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-/* NAV DESKTOP */
-.nav {
-  display: flex;
-  gap: 20px;
-}
-
-.nav a {
-  color: #ccc;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav a:hover {
-  color: #00df9a;
-  text-decoration: underline;
-}
-
-/* RESPONSIVO - MOBILE */
-@media (max-width: 768px) {
-  .header {
-    justify-content: space-between;
-    padding: 20px 30px;
-  }
-
-  .menu-toggle {
-    display: block;
-    position: relative;
-    z-index: 1001;
-  }
-
-  /* OVERLAY ESCURO AO ABRIR MENU */
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 900;
-  }
-
-  .overlay.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* MENU LATERAL DESLIZANTE */
+  /* MENU LATERAL (DRAWER) */
   .nav {
     position: fixed;
     top: 0;
-    right: -250px; /* começa escondido fora da tela */
+    right: -250px;
     height: 100%;
     width: 250px;
     flex-direction: column;
@@ -314,7 +243,7 @@ body {
   }
 
   .nav.show {
-    right: 0; /* desliza pra dentro da tela */
+    right: 0;
   }
 
   .nav a {
@@ -326,5 +255,15 @@ body {
   .nav a:hover {
     color: #00df9a;
     text-decoration: underline;
+  }
+
+  .header {
+    justify-content: center; /* mantém logo centralizado */
+    padding: 20px 30px;
+  }
+
+  .overlay.show {
+    opacity: 1;
+    pointer-events: auto;
   }
 }

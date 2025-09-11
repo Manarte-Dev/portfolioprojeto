@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleMenu = () => {
     nav.classList.toggle('show');       // abre/fecha drawer
     overlay.classList.toggle('show');   // mostra/esconde overlay
-    toggle.style.display = nav.classList.contains('show') ? 'none' : 'block';
   };
 
   // Clicar no botão abre/fecha menu
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       nav.classList.remove('show');
       overlay.classList.remove('show');
-      toggle.style.display = 'block';
     });
   });
 
@@ -26,6 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
   overlay.addEventListener('click', () => {
     nav.classList.remove('show');
     overlay.classList.remove('show');
-    toggle.style.display = 'block';
   });
 });
