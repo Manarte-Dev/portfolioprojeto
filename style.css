@@ -64,7 +64,7 @@ body {
   z-index: 1001;
 }
 
-/* OVERLAY */
+/* OVERLAY MENU */
 .overlay {
   position: fixed;
   top: 0;
@@ -151,11 +151,14 @@ body {
 }
 
 .card {
+  position: relative;
   background-color: #00df9a;
   padding: 25px;
   border-radius: 8px;
   box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.25);
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .card:hover {
@@ -165,17 +168,57 @@ body {
 
 .card h3 {
   color: #000000b9;
-  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #333;
+}
+
+/* overlay dentro do card */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 8px;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* link "Detalhes" centralizado */
+.links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.card:hover .links {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .links a {
-  margin-right: 15px;
+  background: #00df9a;
+  color: #0f0f0f;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
   text-decoration: none;
-  color: #424242;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .links a:hover {
-  text-decoration: underline;
+  background: #00b87a;
+  transform: scale(1.1);
 }
 
 /* ================= SOBRE ================= */
@@ -271,4 +314,35 @@ body {
     color: #00df9a;
     text-decoration: underline;
   }
+}
+/* ================= BOTÕES PROJETO ================= */
+.project-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.project-links button {
+  background: linear-gradient(135deg, #00df9a, #00b87a);
+  color: #0f0f0f;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 223, 154, 0.4);
+}
+
+.project-links button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 223, 154, 0.6);
+  background: linear-gradient(135deg, #00b87a, #00df9a);
+}
+
+.project-links button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 3px 10px rgba(0, 223, 154, 0.3);
 }
