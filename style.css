@@ -1,4 +1,4 @@
-
+/* RESET E ESTILOS GERAIS */
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +16,7 @@ body {
   line-height: 1.6;
 }
 
-
+/* HEADER E NAV */
 .header {
   position: sticky;
   top: 0;
@@ -45,6 +45,17 @@ body {
   color: #00df9a;
 }
 
+/* BOTÃO MENU MOBILE */
+.menu-toggle {
+  display: none; /* só aparece no mobile */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* SEÇÕES */
 .section {
   padding: 80px 40px;
 }
@@ -80,7 +91,7 @@ body {
   color: #00df9a;
 }
 
-
+/* PROJETOS */
 .grid-projetos {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -98,7 +109,7 @@ body {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 10 10 20px 10px rgb(255, 255, 255);
+  box-shadow: 1px 1px 1px rgb(255, 255, 255);
 }
 
 .card h3 {
@@ -116,7 +127,7 @@ body {
   text-decoration: underline;
 }
 
-
+/* SOBRE */
 .sobre-text {
   font-size: 1.1rem;
   max-width: 800px;
@@ -124,7 +135,7 @@ body {
   color: #ccc;
 }
 
-
+/* CONTATO */
 #contato a {
   color: #00df9a;
   text-decoration: none;
@@ -134,6 +145,7 @@ body {
   text-decoration: underline;
 }
 
+/* FOOTER */
 .footer {
   text-align: center;
   padding: 40px;
@@ -141,22 +153,7 @@ body {
   font-size: 0.9rem;
 }
 
-
-@media (max-width: 768px) {
-  .grid-projetos {
-    grid-template-columns: 1fr;
-  }
-
-  .nav {
-    display: none;
-  }
-
-  .header {
-    justify-content: center;
-  }
-}
-
-
+/* ANIMAÇÕES DE TEXTO */
 .efeito {
   opacity: 0;
   transform: translateY(30px);
@@ -181,5 +178,153 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+
+/* RESPONSIVO - MOBILE */
+@media (max-width: 768px) {
+  .grid-projetos {
+    grid-template-columns: 1fr;
+  }
+
+  /* Menu mobile */
+  .nav {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    background-color: #0f0f0f;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  .nav.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 40px;
+    top: 25px;
+  }
+
+  .header {
+    justify-content: center;
+  }
+}
+/* HEADER E NAV */
+.header {
+  position: sticky;
+  top: 0;
+  background: #0f0f0f;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* BOTÃO MENU MOBILE */
+.menu-toggle {
+  display: none; /* só aparece no mobile */
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #00df9a;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* NAV DESKTOP */
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #00df9a;
+  text-decoration: underline;
+}
+
+/* RESPONSIVO - MOBILE */
+@media (max-width: 768px) {
+  .header {
+    justify-content: space-between;
+    padding: 20px 30px;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 1001;
+  }
+
+  /* OVERLAY ESCURO AO ABRIR MENU */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+  }
+
+  .overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* MENU LATERAL DESLIZANTE */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -250px; /* começa escondido fora da tela */
+    height: 100%;
+    width: 250px;
+    flex-direction: column;
+    gap: 25px;
+    background-color: #0f0f0f;
+    padding: 80px 20px 20px 20px;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.3);
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .nav.show {
+    right: 0; /* desliza pra dentro da tela */
+  }
+
+  .nav a {
+    font-size: 1.2rem;
+    color: #ccc;
+    padding: 8px 0;
+  }
+
+  .nav a:hover {
+    color: #00df9a;
+    text-decoration: underline;
   }
 }
