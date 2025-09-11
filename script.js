@@ -1,31 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.nav');
-  const overlay = document.querySelector('.overlay');
-  const btnTopo = document.getElementById('btnTopo');
+// MENU MOBILE
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
+const overlay = document.querySelector('.overlay');
 
-  const fecharMenu = () => {
-    nav.classList.remove('show');
-    overlay.classList.remove('show');
-  };
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('show');
+  overlay.classList.toggle('show');
+});
 
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('show');
-    overlay.classList.toggle('show');
-  });
+overlay.addEventListener('click', () => {
+  nav.classList.remove('show');
+  overlay.classList.remove('show');
+});
 
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', fecharMenu);
-  });
-
-  overlay.addEventListener('click', fecharMenu);
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) btnTopo.classList.add('show');
-    else btnTopo.classList.remove('show');
-  });
-
-  btnTopo.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+// BOTÃO TOPO
+const btnTopo = document.getElementById('btnTopo');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 300){
+    btnTopo.classList.add('show');
+  } else {
+    btnTopo.classList.remove('show');
+  }
+});
+btnTopo.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
