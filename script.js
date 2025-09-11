@@ -1,28 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.menu-toggle'); // botão ☰
-  const nav = document.querySelector('.nav');             // menu drawer
-  const overlay = document.querySelector('.overlay');     // fundo escuro
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav');
+  const overlay = document.querySelector('.overlay');
+  const btnTopo = document.getElementById('btnTopo');
 
-  // Função para abrir/fechar menu
-  const toggleMenu = () => {
-    nav.classList.toggle('show');       // abre/fecha drawer
-    overlay.classList.toggle('show');   // mostra/esconde overlay
-  };
-
-  // Clicar no botão abre/fecha menu
-  toggle.addEventListener('click', toggleMenu);
-
-  // Clicar em qualquer link dentro do menu fecha o menu
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('show');
-      overlay.classList.remove('show');
-    });
-  });
-
-  // Clicar no overlay fecha o menu
-  overlay.addEventListener('click', () => {
+  const fecharMenu = () => {
     nav.classList.remove('show');
     overlay.classList.remove('show');
+  };
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+    overlay.classList.toggle('show');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', fecharMenu);
+  });
+
+  overlay.addEventListener('click', fecharMenu);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) btnTopo.classList.add('show');
+    else btnTopo.classList.remove('show');
+  });
+
+  btnTopo.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });

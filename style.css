@@ -1,4 +1,4 @@
-/* RESET E ESTILOS GERAIS */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -16,29 +16,25 @@ body {
   line-height: 1.6;
 }
 
-/* HEADER E NAV */
+/* ================= HEADER ================= */
 .header {
-  position: sticky;
-  top: 0;
+  position: relative; /* não acompanha a rolagem */
   background: #0f0f0f;
   padding: 20px 40px;
   display: flex;
-  justify-content: center; /* centraliza logo */
+  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #222;
-  position: relative; /* necessário para o botão */
   z-index: 1000;
+  border-bottom: 1px solid #222;
 }
 
 .logo {
   font-weight: 800;
-  font-size: 2rem; /* tamanho ajustado */
+  font-size: 1.2rem;
   color: #fff;
-  text-align: center;
-  flex: 1; /* ocupa espaço central */
 }
 
-/* NAV DESKTOP */
+/* NAV - DESKTOP */
 .nav {
   display: flex;
   gap: 20px;
@@ -58,20 +54,17 @@ body {
 
 /* BOTÃO MENU MOBILE */
 .menu-toggle {
-  display: none; /* só aparece no mobile */
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.8rem;
-  color: #00df9a;
+  display: none;
   background: none;
   border: none;
+  font-size: 1.8rem;
+  color: #00df9a;
   cursor: pointer;
+  transition: transform 0.3s ease;
   z-index: 1001;
 }
 
-/* OVERLAY ESCURO */
+/* OVERLAY */
 .overlay {
   position: fixed;
   top: 0;
@@ -90,7 +83,30 @@ body {
   pointer-events: auto;
 }
 
-/* SEÇÕES */
+/* ================= BOTÃO TOPO ================= */
+.btn-topo {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #00df9a;
+  color: #0f0f0f;
+  border: none;
+  border-radius: 50%;
+  padding: 12px 16px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1100;
+}
+
+.btn-topo.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ================= SEÇÕES ================= */
 .section {
   padding: 80px 40px;
 }
@@ -126,7 +142,7 @@ body {
   color: #00df9a;
 }
 
-/* PROJETOS */
+/* ================= PROJETOS ================= */
 .grid-projetos {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -138,13 +154,13 @@ body {
   background-color: #00df9a;
   padding: 25px;
   border-radius: 8px;
-  box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.288);
+  box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 1px 1px 1px rgb(255, 255, 255);
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
 }
 
 .card h3 {
@@ -162,7 +178,7 @@ body {
   text-decoration: underline;
 }
 
-/* SOBRE */
+/* ================= SOBRE ================= */
 .sobre-text {
   font-size: 1.1rem;
   max-width: 800px;
@@ -170,7 +186,7 @@ body {
   color: #ccc;
 }
 
-/* CONTATO */
+/* ================= CONTATO ================= */
 #contato a {
   color: #00df9a;
   text-decoration: none;
@@ -180,7 +196,7 @@ body {
   text-decoration: underline;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .footer {
   text-align: center;
   padding: 40px;
@@ -188,7 +204,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* ANIMAÇÕES DE TEXTO */
+/* ================= ANIMAÇÕES ================= */
 .efeito {
   opacity: 0;
   transform: translateY(30px);
@@ -216,7 +232,7 @@ body {
   }
 }
 
-/* RESPONSIVO - MOBILE */
+/* ================= RESPONSIVO ================= */
 @media (max-width: 768px) {
   .grid-projetos {
     grid-template-columns: 1fr;
@@ -226,7 +242,6 @@ body {
     display: block;
   }
 
-  /* MENU LATERAL (DRAWER) */
   .nav {
     position: fixed;
     top: 0;
@@ -255,15 +270,5 @@ body {
   .nav a:hover {
     color: #00df9a;
     text-decoration: underline;
-  }
-
-  .header {
-    justify-content: center; /* mantém logo centralizado */
-    padding: 20px 30px;
-  }
-
-  .overlay.show {
-    opacity: 1;
-    pointer-events: auto;
   }
 }
