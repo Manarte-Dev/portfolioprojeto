@@ -15,7 +15,24 @@ body {
   color: #f2f2f2;
   line-height: 1.6;
 }
-
+h1,h2,h3 {
+  text-align: center;
+}
+ul {
+  padding: 25px;
+  justify-self: center;
+}
+p#funcionalidade{
+  text-align: center;
+  margin-top: 20px;
+}
+#sobreproject{
+  text-align: justify;
+}
+.sobre-text{
+  text-align: justify;
+  margin: auto;
+}
 /* ================= HEADER ================= */
 .header {
   position: relative;
@@ -283,6 +300,8 @@ body {
     padding: 60px 20px;
   }
 
+
+
   #conteudo {
     padding: 10px 25px; /* ajuste no mobile */
   }
@@ -361,7 +380,4 @@ body {
 .project-links button:active {
   transform: translateY(0) scale(0.98);
   box-shadow: 0 3px 10px rgba(0,223,154,0.3);
-}
-ul {
-  padding: 25px;
 }
