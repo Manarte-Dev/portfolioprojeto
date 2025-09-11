@@ -42,10 +42,9 @@ body {
 }
 
 .nav a:hover {
-  color: #fff;
+  color: #00df9a;
 }
 
-/* Sections */
 .section {
   padding: 80px 40px;
 }
@@ -91,9 +90,10 @@ body {
 }
 
 .card {
-  background-color: #19d160e0;
+  background-color: #00df9a;
   padding: 25px;
   border-radius: 8px;
+  box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.288);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -103,14 +103,14 @@ body {
 }
 
 .card h3 {
-  color: #070707;
+  color: #000000b9;
   text-align: center;
 }
 
 .links a {
   margin-right: 15px;
   text-decoration: none;
-  color: #00df9a;
+  color: #424242;
 }
 
 .links a:hover {
