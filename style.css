@@ -260,6 +260,7 @@ p#funcionalidade{
 
 /* ================= SOBRE ================= */
 .sobre-text {
+  text-align: center;
   font-size: 1.1rem;
   max-width: 800px;
   margin-top: 20px;
