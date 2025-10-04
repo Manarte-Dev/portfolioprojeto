@@ -50,6 +50,7 @@ if ('geolocation' in navigator) {
     const city = data.name;
 
     weatherWidget.textContent = `${temp} °C - ${desc} ${city}`;
+    weatherWidget.classList.add('show');
   }    catch (err) {
     weatherWidget.textContent = `Não foi possivel obter dados`
   }
