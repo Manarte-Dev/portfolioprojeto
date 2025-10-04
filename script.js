@@ -47,8 +47,9 @@ if ('geolocation' in navigator) {
     const data = await res.json();
     const temp = Math.round(data.main.temp);
     const desc = data.weather[0].description;
+    const city = data.name;
 
-    weatherWidget.textContent = `🌤️ ${temp} °C - ${desc}`;
+    weatherWidget.textContent = `🌤️ ${temp} °C - ${desc} ${city}`;
   }    catch (err) {
     weatherWidget.textContent = `Não foi possivel obter dados`
   }

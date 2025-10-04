@@ -69,19 +69,27 @@ p#funcionalidade{
 }
 
 .weather-widget {
-  text-align: center;
-  position: fixed;         
-  top: 20px;               
-  left: 45%;
-  width: 150px;
-  height: 50px;
+  position: fixed;
+  top: 10px;                     /* distância do topo */
+  left: 50%;                     /* centraliza horizontalmente */
   transform: translateX(-50%);
-  background: rgb(0, 0, 0);
+  
+  background: rgba(0, 0, 0, 0.7); /* fundo semi-transparente */
   color: #fff;
-  padding: 6px 12px;
+  padding: 8px 12px;              /* espaço interno flexível */
   border-radius: 8px;
   font-size: 14px;
-  z-index: 2000;           
+  font-weight: bold;
+  text-align: center;
+
+  max-width: 90%;                 /* não ultrapassa 90% da tela */
+  width: auto;                    /* se ajusta ao conteúdo */
+  height: auto;                   /* altura automática */
+  
+  z-index: 2000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+
+  transition: all 0.3s ease;      /* transição suave para mudanças */
 }
 
 
@@ -397,4 +405,11 @@ p#funcionalidade{
 .project-links button:active {
   transform: translateY(0) scale(0.98);
   box-shadow: 0 3px 10px rgba(0,223,154,0.3);
+}
+
+@media (max-width: 480px) {
+  .weather-widget {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 }
