@@ -1,4 +1,4 @@
-/* ================= RESET ================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -45,10 +45,26 @@ p#funcionalidade{
   z-index: 1000;
 }
 
-.logo {
-  font-weight: 800;
-  font-size: 1.2rem;
-  color: #fff;
+.logo img {
+  max-width: 200px;
+  min-width: 150px;
+  width: 100%;      
+  height: auto;     
+  display: block;   
+  border-radius: 20px;
+  border: 3px solid #70bd5128;
+  opacity: 0.5;
+}
+
+.logo img:hover{
+  max-width: 200px;
+  min-width: 150px;
+  width: 100%;      
+  height: auto;     
+  display: block;   
+  border-radius: 20px;
+  border: 2px solid #ffffff28;
+  opacity: 2;
 }
 
 .nav {
@@ -151,8 +167,8 @@ p#funcionalidade{
 
 #conteudo {
   margin: 20px auto;
-  padding: 10px 20px; /* espaçamento lateral */
-  max-width: 1100px; /* limite opcional */
+  padding: 10px 20px; 
+  max-width: 1100px; 
 }
 
 .hero {
@@ -169,16 +185,34 @@ p#funcionalidade{
   font-weight: 400;
   font-size: 1.3rem;
   color: #bbb;
+  text-shadow: 1px 1px 10px rgb(0, 0, 0);
 }
 
 .hero p {
   margin-top: 15px;
   font-size: 1.1rem;
   color: #999;
+  text-shadow: 1px 1px 10px rgb(0, 0, 0);
 }
 
 .nomedestaque {
   color: #00df9a;
+  text-shadow: 1px 1px 10px rgb(0, 0, 0);
+  
+}
+
+.backg{
+  background-image: url('img/fundo-resulucao.png');
+  background-size: cover;       /* cobre toda a tela */
+  background-position: center;  /* centraliza a imagem */
+  background-repeat: no-repeat; /* evita repetição */
+  background-attachment: fixed; /* fixa o fundo ao rolar */
+  border-radius: 0px 0px 180px 180px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  overflow: hidden;
+  margin: 2px;
+  width: auto;
+  box-shadow:  1px 10px 1000px 1px rgba(18, 236, 134, 0.281);
 }
 
 /* ================= PROJETOS ================= */
